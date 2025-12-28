@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
-[![HuggingFace](https://img.shields.io/badge/🤗-Models-yellow.svg)](https://huggingface.co/ryuz-eng/woundcare-ai)
+[![HuggingFace](https://img.shields.io/badge/🤗-Models-yellow.svg)](https://huggingface.co/benhoxton/woundcare-ai)
 
 Deep learning system for automated pressure ulcer staging (NPUAP Stage 1-4) using segmentation-guided classification.
 
@@ -29,7 +29,7 @@ Deep learning system for automated pressure ulcer staging (NPUAP Stage 1-4) usin
 
 ##  Model Weights
 
-**🤗 Hugging Face Hub:** https://huggingface.co/ryuz-eng/woundcare-ai
+**🤗 Hugging Face Hub:** https://huggingface.co/benhoxton/woundcare-ai
 
 Trained models are hosted on Hugging Face (too large for GitHub):
 - `seg_best.pth` (49 MB) - U-Net segmentation, Dice: 0.9003
@@ -154,29 +154,12 @@ python train/train_cls_finetune.py --config configs/cls_pred_ft.yaml
 
 ##  Deployment
 
-### Option 1: Local Inference (Above)
+### Local Inference (Above)
 
 Already covered in Quick Start.
 
-### Option 2: Web API
 
-**Live API Demo:** https://huggingface.co/spaces/ryuz-eng/woundcare-api
-
-```python
-import requests
-
-url = "https://ryuz-eng-woundcare-api.hf.space/analyze"
-files = {"file": open("wound.jpg", "rb")}
-response = requests.post(url, files=files)
-
-result = response.json()
-print(f"Stage: {result['predicted_stage']}")
-print(f"Confidence: {result['confidence']:.2%}")
-```
-
-**API Documentation:** Visit the space URL for Swagger docs
-
-### Option 3: Mobile App (Flutter)
+### Option 2: Mobile App (Flutter)
 
 ```bash
 cd deployment/app
