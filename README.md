@@ -345,9 +345,7 @@ Returns structured uncertainty information:
 This is a **research prototype** for educational purposes.
 
 ** Not approved for clinical deployment**
-- No FDA/CE approval
 - No clinical validation with practitioners
-- No IRB approval for patient use
 
 **Clinical deployment requires:**
 - Institutional review board approval
