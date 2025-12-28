@@ -1,0 +1,15 @@
+seed: 42
+
+images_dir: data/processed/images
+masks_dir: data/processed/masks
+
+train_csv: data/splits/seg_train.csv
+val_csv: data/splits/seg_val.csv
+
+img_size: 320
+batch_size: 8
+epochs: 80
+lr: 0.0003
+
+encoder: resnet34
+checkpoint_path: runs/seg/seg/seg_best.pth
