@@ -9,9 +9,10 @@ Deep learning system for automated pressure ulcer staging (NPUAP Stage 1-4) usin
 
 ##  Overview
 
-**Final Year Project** - Singapore Polytechnic, School of ECE  
+**Final Year Project** - Ngee Ann Polytechnic, School of ECE  
 **Student:** Ben Lee Wen Hon  
 **Supervisors:** Chua Kuang Chua, Ang Hui Chen
+**Company Supervisor:** Eileen Lim
 
 ### Performance
 - **Test Accuracy:** 76.7% (n=103 held-out images)
