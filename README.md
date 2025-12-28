@@ -50,7 +50,7 @@ git clone https://github.com/ryuz-eng/WoundCare-AI.git
 cd WoundCare-AI
 
 # Install dependencies
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ### Inference
