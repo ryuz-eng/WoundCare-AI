@@ -85,6 +85,71 @@ Results saved to:
 - `results/unseen_results.json` - Detailed JSON
 
 ---
+##  Try It Now (No Installation Required!)
+
+**Live API Demo:** https://benhoxton-woundcare-ai-staging.hf.space/docs
+
+Want to test the system without installing anything? Use our live API!
+
+### Interactive Web Interface
+
+ **[Open Swagger UI](https://benhoxton-woundcare-ai-staging.hf.space/docs)** 
+
+**Steps:**
+1. Click the link above
+2. Navigate to `POST /analyze` endpoint
+3. Click **"Try it out"**
+4. Click **"Choose File"** and upload a wound image
+5. Click **"Execute"**
+6. View instant AI staging results!
+
+### Command Line (curl)
+```bash
+curl -X POST "https://benhoxton-woundcare-ai-staging.hf.space/analyze" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@your_wound_image.jpg"
+```
+
+### Python Script
+```python
+import requests
+
+# Upload image to API
+url = "https://benhoxton-woundcare-ai-staging.hf.space/analyze"
+files = {"file": open("wound.jpg", "rb")}
+response = requests.post(url, files=files)
+
+# Parse results
+result = response.json()
+print(f"Predicted Stage: {result['predicted_stage']}")
+print(f"Confidence: {result['confidence']:.2%}")
+print(f"Wound Area: {result['wound_area_percent']:.1f}%")
+```
+
+**API Response Example:**
+```json
+{
+  "success": true,
+  "predicted_stage": "Stage_2",
+  "stage_name": "Stage 2",
+  "confidence": 0.87,
+  "stage_probabilities": {
+    "Stage_1": 0.05,
+    "Stage_2": 0.87,
+    "Stage_3": 0.06,
+    "Stage_4": 0.02
+  },
+  "wound_area_percent": 12.4,
+  "wound_pixels": 45678,
+  "total_pixels": 368640,
+  "inference_time_ms": 234.5,
+  "segmentation_mask_base64": "iVBORw0KGgoAAAANS...",
+  "message": "Analysis completed successfully"
+}
+```
+
+---
 
 ##  Project Structure
 
@@ -152,22 +217,55 @@ python train/train_cls_finetune.py --config configs/cls_pred_ft.yaml
 
 ---
 
-##  Deployment
+## Deployment
 
-### Local Inference (Above)
+### Option 1: Local Inference
 
 Already covered in Quick Start.
 
+### Option 2: Web API
 
-### Option 2: Mobile App (Flutter)
+** Live API:** https://benhoxton-woundcare-ai-staging.hf.space
 
+** Interactive Docs:** https://benhoxton-woundcare-ai-staging.hf.space/docs
+
+**Test the API:**
+```bash
+# Health check
+curl https://benhoxton-woundcare-ai-staging.hf.space/health
+
+# Analyze wound image
+curl -X POST "https://benhoxton-woundcare-ai-staging.hf.space/analyze" \
+  -F "file=@wound.jpg" \
+  -o result.json
+```
+
+**Python client:**
+```python
+import requests
+
+url = "https://benhoxton-woundcare-ai-staging.hf.space/analyze"
+files = {"file": open("wound.jpg", "rb")}
+response = requests.post(url, files=files)
+
+result = response.json()
+print(f"Stage: {result['predicted_stage']}")
+print(f"Confidence: {result['confidence']:.2%}")
+```
+
+**Try it in browser:** Visit the [Swagger UI](https://benhoxton-woundcare-ai-staging.hf.space/docs) to test the API interactively.
+
+### Option 3: Mobile App (Flutter)
 ```bash
 cd deployment/app
 flutter pub get
 flutter run
 ```
 
-The mobile app connects to the API endpoint for real-time staging.
+**Configure API endpoint:** Edit `lib/config/api_config.dart` to point to:
+```dart
+static const String baseUrl = 'https://benhoxton-woundcare-ai-staging.hf.space';
+```
 
 **Full deployment guide:** See `docs/deployment_guide.md`
 
@@ -270,8 +368,9 @@ This is a **research prototype** for educational purposes.
 
 | Component | Link | Description |
 |-----------|------|-------------|
-| **Model Weights** | [🤗 Hub](https://huggingface.co/ryuz-eng/woundcare-ai) | Trained PyTorch models |
-| **API Demo** | [🤗 Space](https://huggingface.co/spaces/ryuz-eng/woundcare-api) | Live inference API |
+| **Model Weights** | [🤗 Hub](https://huggingface.co/benhoxton/woundcare-ai) | Trained PyTorch models |
+| **API Demo** | [🤗 Space](https://benhoxton-woundcare-ai-staging.hf.space) | Live inference API |
+| **API Docs** | [Swagger](https://benhoxton-woundcare-ai-staging.hf.space/docs) | Interactive API documentation |
 | **GitHub Repo** | [Code](https://github.com/ryuz-eng/WoundCare-AI) | Training + Inference code |
 
 
