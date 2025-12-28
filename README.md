@@ -4,7 +4,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
 
-An AI-powered clinical decision support system for automated pressure ulcer staging (NPUAP Stage 1-4) using deep learning-based segmentation and classification.
+An AI-powered clinical decision support system for automated pressure ulcer staging (NPIAP Stage 1-4) using deep learning-based segmentation and classification.
 
 ## Overview
 
