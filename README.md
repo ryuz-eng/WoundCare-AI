@@ -228,9 +228,9 @@ Already covered in Quick Start.
 
 ### Option 2: Web API
 
-** Live API:** https://benhoxton-woundcare-ai-staging.hf.space
+**Live API:** https://benhoxton-woundcare-ai-staging.hf.space
 
-** Interactive Docs:** https://benhoxton-woundcare-ai-staging.hf.space/docs
+**Interactive Docs:** https://benhoxton-woundcare-ai-staging.hf.space/docs
 
 **Test the API:**
 ```bash
