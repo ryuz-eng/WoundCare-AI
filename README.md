@@ -5,7 +5,7 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
 [![HuggingFace](https://img.shields.io/badge/🤗-Models-yellow.svg)](https://huggingface.co/benhoxton/woundcare-ai)
 
-Deep learning system for automated pressure ulcer staging (NPUAP Stage 1-4) using segmentation-guided classification.
+Deep learning system for automated pressure ulcer staging (NPIAP Stage 1-4) using segmentation-guided classification.
 
 ##  Overview
 
