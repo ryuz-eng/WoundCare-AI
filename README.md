@@ -13,6 +13,7 @@ Deep learning system for automated pressure ulcer staging (NPUAP Stage 1-4) usin
 
 **Student:** Ben Lee Wen Hon  
 **Supervisors:** Chua Kuang Chua, Ang Hui Chen
+
 **Company Supervisor:** Eileen Lim
 
 ### Performance
