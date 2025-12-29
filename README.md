@@ -17,8 +17,8 @@ Deep learning system for automated pressure ulcer staging (NPIAP Stage 1-4) usin
 **Company Supervisor:** Eileen Lim
 
 ### Performance
-- **Test Accuracy:** 76.7% (n=103 held-out images)
-- **Macro-F1:** 0.768
+- **Test Accuracy:** 77.7% (n=103 held-out images)
+- **Macro-F1:** 0.779
 - **Architecture:** U-Net segmentation → ConvNeXt-Tiny classification
 
 ### Key Features
