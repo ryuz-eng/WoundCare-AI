@@ -1113,15 +1113,25 @@ class _CaptureScreenState extends State<CaptureScreen> {
     required String contentType,
     required String ext,
   }) async {
+    final headers = <String, String>{'Content-Type': 'application/json'};
+    final user = FirebaseAuth.instance.currentUser;
+    final token = await user?.getIdToken(true);
+    if (token != null && token.isNotEmpty) {
+      headers['Authorization'] = 'Bearer $token';
+    }
+
     final response = await http.post(
       Uri.parse(AppConstants.uploadInitUrl),
-      headers: const {'Content-Type': 'application/json'},
+      headers: headers,
       body: jsonEncode({
         'contentType': contentType,
         'ext': ext,
       }),
     );
 
+    if (response.statusCode == 401 || response.statusCode == 403) {
+      throw Exception('Upload init unauthorized. Please sign in again.');
+    }
     if (response.statusCode != 200) {
       throw Exception('Upload init failed: ${response.body}');
     }
