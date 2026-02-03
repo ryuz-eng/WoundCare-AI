@@ -41,12 +41,38 @@ static const String baseUrl = "http://34.195.129.250:7860";
 
 ## Firebase Setup
 
-1) Create Firebase project
-2) Enable Authentication -> Email/Password
-3) Enable Firestore
-4) Run FlutterFire CLI:
+1) Create Firebase project  
+2) Enable Authentication -> Email/Password  
+3) Enable Firestore  
+4) Generate Flutter Firebase options:
 
 flutterfire configure --project=<firebase-project-id>
+
+5) Download Android config from Firebase Console and place here:
+
+android/app/google-services.json
+
+Notes
+- This repo may not include Firebase config files in public branches.
+- If missing, regenerate `lib/firebase_options.dart` with FlutterFire CLI and re-download `google-services.json`.
+
+## Local Run (VS Code / CLI)
+
+Use runtime defines for backend endpoints:
+
+flutter run \
+  --dart-define=WC_UPLOAD_INIT_URL=https://<api-id>.execute-api.us-east-1.amazonaws.com/prod/upload-init \
+  --dart-define=WC_TRIAGE_URL=https://<api-id>.execute-api.us-east-1.amazonaws.com/prod/triage \
+  --dart-define=WC_NEAREST_HOSPITAL_URL=https://<api-id>.execute-api.us-east-1.amazonaws.com/prod/nearest-hospital \
+  --dart-define=WC_BASE_URL=http://<inference-host>
+
+## Handover (for next developer)
+
+If someone else clones this repo, they must:
+1) Run `flutter pub get`
+2) Run `flutterfire configure`
+3) Place `google-services.json` at `android/app/google-services.json`
+4) Run app with correct `--dart-define` backend URLs
 
 ## AWS: KMS Key
 
@@ -230,6 +256,13 @@ NoRegionError in boto3
 Android clear-text HTTP error
 - If using HTTP, set android:usesCleartextTraffic="true" in
   android/app/src/main/AndroidManifest.xml
+
+upload-init failed: Unauthorized
+- Ensure the app sends Firebase ID token in `Authorization: Bearer <token>`.
+- Ensure API Gateway route authorizer is configured and token is valid for your Firebase project.
+
+Missing `lib/firebase_options.dart` or `google-services.json`
+- Re-run `flutterfire configure` and re-download Android config from Firebase Console.
 
 ## Files Added/Updated in Repo
 
