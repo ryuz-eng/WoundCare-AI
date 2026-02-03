@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "269333681612",
+    "project_id": "woundcare-fyp",
+    "storage_bucket": "woundcare-fyp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269333681612:android:efdf0a9739d95ec474f969",
+        "android_client_info": {
+          "package_name": "com.example.woundcare_ai_tablet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeCdSruyt10jC2Bj764CVX7ZDG2IH3Dp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
