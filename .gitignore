@@ -37,9 +37,6 @@ migrate_working_dir/
 *.secret
 *service-account*.json
 firebase-service-account.json
-lib/firebase_options.dart
-android/app/google-services.json
-ios/Runner/GoogleService-Info.plist
 
 # Symbolication related
 app.*.symbols
@@ -51,6 +48,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-# Local on-device models (not used in AWS flow)
-assets/models/
